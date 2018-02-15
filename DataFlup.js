@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Data Flup
 // @namespace    http://esheep.ch/
-// @version      0.1
+// @version      0.2
 // @description  Show me some stuff...
 // @author       Raphael Theiler
 // @match        http://tampermonkey.net/index.php?version=4.5&ext=dhdg&updated=true
