@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Data Flup
 // @namespace    http://esheep.ch/
-// @version      0.2
+// @version      0.3
 // @description  Show me some stuff...
 // @author       Raphael Theiler
 // @match        http://tampermonkey.net/index.php?version=4.5&ext=dhdg&updated=true
@@ -31,6 +31,9 @@
                         if(o[i].pbVisible===false){
                             o[i].set_pbVisible(true);
                         }
+                         if(o[i].pbReadOnly===true){
+                            o[i].set_pbReadOnly(false);
+												 }
                         if(o[i].pbEnabled===false){
                             o[i].set_pbEnabled(true);
                         }
