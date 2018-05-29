@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Data Flup
 // @namespace    http://esheep.ch/
-// @version      0.5
+// @version      0.6
 // @description  Show me some stuff...
 // @author       Raphael Theiler
 // @include         *
@@ -54,5 +54,5 @@
     // Your code here...
     console.log("Hello world");
     };
-    GM_registerMenuCommand("DataFlup - show everything", showEverything, "h")
+    GM_registerMenuCommand("DataFlup - show everything", showEverything, "d")
 })();
