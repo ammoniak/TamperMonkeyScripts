@@ -6,6 +6,7 @@
 // @author       Raphael Theiler
 // @include         *
 // @grant        GM_registerMenuCommand
+// @updateURL    https://raw.githubusercontent.com/ammoniak/TamperMonkeyScripts/master/DataFlup.js
 // ==/UserScript==
 
 (function() {
