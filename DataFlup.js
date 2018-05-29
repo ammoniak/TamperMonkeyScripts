@@ -51,7 +51,6 @@
 
     //that's all... no magic, no bloated framework
     traverse(oWebApp,process);
-        console.log(oWebApp);
     // Your code here...
     console.log("Hello world");
     };
