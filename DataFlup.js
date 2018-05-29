@@ -1,24 +1,22 @@
 // ==UserScript==
 // @name         Data Flup
 // @namespace    http://esheep.ch/
-// @version      0.4
+// @version      0.5
 // @description  Show me some stuff...
 // @author       Raphael Theiler
-// @match        http://tampermonkey.net/index.php?version=4.5&ext=dhdg&updated=true
+// @include         *
 // @grant        GM_registerMenuCommand
-// @run-at context-menu
 // ==/UserScript==
 
 (function() {
-    console.log("Hello world");
-    //'use strict';
+    'use strict';
     var traversed=[];
 
-    function process(key,value) {
+    var process = function(key,value) {
             console.log(key + " -> " + value);
-    }
+    };
 
-    function traverse(o,func) {
+    var traverse = function(o,func) {
         traversed.push(o);
         for (var i in o) {
             //func.apply(this,[i,o[i]]);
@@ -44,11 +42,17 @@
                 }
             }
         }
-    }
+    };
+    var showEverything = function (){
+    console.log("Hello world");
+    traversed=[];
+
 
     //that's all... no magic, no bloated framework
     traverse(oWebApp,process);
-
+        console.log(oWebApp);
     // Your code here...
     console.log("Hello world");
+    };
+    GM_registerMenuCommand("DataFlup - show everything", showEverything, "h")
 })();
