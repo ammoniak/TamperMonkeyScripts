@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Data Flup
 // @namespace    http://esheep.ch/
-// @version      0.7
+// @version      0.8
 // @description  Show me some stuff...
 // @author       Raphael Theiler
 // @include         *
@@ -15,6 +15,19 @@
 
     var process = function(key,value) {
             //console.log(key + " -> " + value);
+        if(key.pbRender===false){
+            key.set_pbRender(true);
+            //console.log(o[i]);
+        }
+        if(key.pbVisible===false){
+            key.set_pbVisible(true);
+        }
+        if(key.pbReadOnly===true){
+            key.set_pbReadOnly(false);
+        }
+        if(key.pbEnabled===false){
+            key.set_pbEnabled(true);
+        }
     };
 
     var getReturnMethod = function(key,value){
@@ -30,19 +43,7 @@
             if (i.substr(0,1)!="_" && i!="cssRules" && i!="rules"){
                 if (o[i] !== null && typeof(o[i])=="object" && traversed.indexOf(o[i])<0) {
                     if (i!="cssRules"){
-                        if(o[i].pbRender===false){
-                            o[i].set_pbRender(true);
-                            //console.log(o[i]);
-                        }
-                        if(o[i].pbVisible===false){
-                            o[i].set_pbVisible(true);
-                        }
-                         if(o[i].pbReadOnly===true){
-                            o[i].set_pbReadOnly(false);
-												 }
-                        if(o[i].pbEnabled===false){
-                            o[i].set_pbEnabled(true);
-                        }
+
                         func(o[i]);
                     }
                     //going one step down in the object tree!!
