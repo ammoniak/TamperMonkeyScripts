@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Data Flup
 // @namespace    http://esheep.ch/
-// @version      0.6
+// @version      0.7
 // @description  Show me some stuff...
 // @author       Raphael Theiler
 // @include         *
@@ -14,8 +14,14 @@
     var traversed=[];
 
     var process = function(key,value) {
-            console.log(key + " -> " + value);
+            //console.log(key + " -> " + value);
     };
+
+    var getReturnMethod = function(key,value){
+        if (key.psReturnMessage != undefined){
+            console.log("psReturnMessage: " + key.psReturnMessage + " -> " + key.psReturnObject)
+        }
+    }
 
     var traverse = function(o,func) {
         traversed.push(o);
@@ -26,7 +32,7 @@
                     if (i!="cssRules"){
                         if(o[i].pbRender===false){
                             o[i].set_pbRender(true);
-                            console.log(o[i]);
+                            //console.log(o[i]);
                         }
                         if(o[i].pbVisible===false){
                             o[i].set_pbVisible(true);
@@ -37,6 +43,7 @@
                         if(o[i].pbEnabled===false){
                             o[i].set_pbEnabled(true);
                         }
+                        func(o[i]);
                     }
                     //going one step down in the object tree!!
                     traverse(o[i],func);
@@ -47,12 +54,15 @@
     var showEverything = function (){
     console.log("Hello world");
     traversed=[];
-
-
-    //that's all... no magic, no bloated framework
     traverse(oWebApp,process);
-    // Your code here...
+    console.log("Hello world");
+    };
+    var showReturnMessages = function (){
+    console.log("Hello world");
+    traversed=[];
+    traverse(oWebApp,getReturnMethod);
     console.log("Hello world");
     };
     GM_registerMenuCommand("DataFlup - show everything", showEverything, "d")
+    GM_registerMenuCommand("DataFlup - show all psReturnMessages", showReturnMessages, "d")
 })();
