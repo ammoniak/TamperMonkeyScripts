@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Data Flup
 // @namespace    http://esheep.ch/
-// @version      0.8
+// @version      0.9
 // @description  Show me some stuff...
 // @author       Raphael Theiler
 // @include         *
 // @grant        GM_registerMenuCommand
 // @updateURL    https://raw.githubusercontent.com/ammoniak/TamperMonkeyScripts/master/DataFlup.js
+// @downloadURL  https://raw.githubusercontent.com/ammoniak/TamperMonkeyScripts/master/DataFlup.js
 // ==/UserScript==
 
 (function() {
