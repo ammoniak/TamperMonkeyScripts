@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Data Flup
 // @namespace    http://esheep.ch/
-// @version      0.9
+// @version      0.9.1
 // @description  Show me some stuff...
 // @author       Raphael Theiler
 // @include         *
@@ -67,4 +67,11 @@
     };
     GM_registerMenuCommand("DataFlup - show everything", showEverything, "d")
     GM_registerMenuCommand("DataFlup - show all psReturnMessages", showReturnMessages, "d")
+    document.addEventListener('keydown', function(e) {
+        // pressed cstrl+shit+a
+        if (e.keyCode == 65 && e.shiftKey && e.ctrlKey) {
+            console.log("key!");
+            showEverything();
+        }
+    }, false);
 })();
