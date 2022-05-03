@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Data Flup
 // @namespace    http://esheep.ch/
-// @version      0.9.1
+// @version      0.9.2
 // @description  Show me some stuff...
 // @author       Raphael Theiler
 // @include         *
@@ -28,6 +28,13 @@
         }
         if(key.pbEnabled===false){
             key.set_pbEnabled(true);
+        }
+        if(key.pbServerOnClick===true){
+            console.log(key);
+            if (key._eElem!= null) {
+                key._eElem.style.border="dotted thin red";
+            }
+            key.set_psBackgroundColor("#e64812");
         }
     };
 
